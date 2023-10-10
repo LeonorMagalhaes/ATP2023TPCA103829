@@ -1,0 +1,122 @@
+#Trabalho de casa número 4:
+
+#1.VARIÁVEL INTERNA:
+
+main_list=[]
+
+#2.DEFENIÇÕES:
+def criaLista(N):
+    import random
+    global main_list
+    main_list = []
+    x = 0
+    for X in range(0, N):
+        x = (random.randrange(1,101))
+        main_list.append(x)
+    return main_list
+
+
+def leLista(N):
+    global main_list
+    main_list = []
+    for X in range(0,N):
+        X = int(input("Introduza um número n:"))
+        main_list.append(X)
+    return main_list
+
+def somaLista(N):
+    global main_list
+    soma=0
+    for i in N:
+        soma = soma + i
+    return soma
+
+def mediaLista(N):
+    global main_list
+    n_total = len(N)
+    soma = 0
+    for i in N:
+        soma = soma + i
+        media = soma/n_total
+    return media
+
+def maiorLista(N):
+    global main_list
+    maior=N[0]
+    for x in N:
+     if x > maior:
+            maior = x
+    return maior 
+
+def menorLista(N):
+    global main_list
+    menor = N[0]
+    for x in N:
+        if x < menor:
+            menor = x
+    return menor
+
+def OrdenaListaC(N):
+    global main_list
+    for e in range((len(N)-1)):
+        if N[e] > N[e + 1]:
+            return "Não, a lista não está ordenada por ordem crescente"
+    return "Sim, a lista está ordenada por ordem crescente"
+    
+def OrdenaListaD(N):
+    global main_list
+    for n in range(0,(len(N)-1)):
+        if N[n] > N[n +1]:
+            return "Sim, a lista está ordenada de forma decrescente"
+        return "Não"
+
+def encontraLista(i1, N):
+    global main_list
+    for i1 in N:
+        if i1 in range(0, (len(N)-1)):
+            return "O elemento encontra-se na posição: ", N[i1]
+        return "-1"
+    
+#3.MENU
+
+import sys
+
+menu = int(input("""Selecione uma das opções apresentadas no menu, introduzindo o número correspondente:\n(1) Criar Lista\n(2) Ler Lista\n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) estaOrdenada por ordem crescente \n(8) estaOrdenada por ordem decrescente \n(9) Procura um elemento \n(0) Sair:"""))
+while menu !=0:
+
+    if menu == 1:
+        print(criaLista(int(input("Intoduza um número N que determine o tamanho da lista:"))))
+        
+
+    elif menu == 2:
+        
+        print(leLista(int(input("Intoduza um número N que determine o tamanho da lista:"))))
+    
+    
+    elif menu == 3:
+        
+        print(somaLista(main_list))
+
+    elif menu == 4:
+        
+        print(mediaLista(main_list))
+
+    elif menu == 5:
+                 
+        print(maiorLista(main_list))
+    elif menu == 6:
+        
+        print(menorLista(main_list))
+    elif modo == 7:
+        res=estaOrdenadaC(main_list)
+        print(res)
+    elif menu == 8:
+        res2=estaOrdenadaD(main_list)
+        print(res2)
+    elif menu == 9:
+        print(main_list)
+        print(encontraLista(main_list,int(input("Procure um elemento à escolha:"))))
+
+if menu == 0:
+    sys.exit()
+    print(main_list)
